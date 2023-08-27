@@ -37,3 +37,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 // 23.08.2023 -
 // 24.08.2023
 // 25.08.2023 Prepare another device
+// 26.08.2023 -
+// 27.08.2023 Prerpare to continue
