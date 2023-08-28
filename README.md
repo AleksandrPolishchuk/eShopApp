@@ -39,3 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 // 25.08.2023 Prepare another device
 // 26.08.2023 -
 // 27.08.2023 Prerpare to continue
+// 28.08.2023 Add additional sources
