@@ -5,7 +5,10 @@ export default function HomePage() {
             <div className = "column-padding">
                 <div className = "tablet-centered">
                     <div className = "content-grid home-hero">
-                        Text
+                        <h1>
+                            Products
+                        </h1>
+                        <p className = "section-subtitle">Some data</p>
                     </div>
                 </div>
             </div>
