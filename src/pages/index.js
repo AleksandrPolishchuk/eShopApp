@@ -9,6 +9,7 @@ export default function HomePage() {
                             Products
                         </h1>
                         <p className = "section-subtitle">Some data</p>
+                        <p>data2</p>
                     </div>
                 </div>
             </div>
