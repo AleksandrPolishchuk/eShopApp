@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -22,7 +23,7 @@ export default function HomePage() {
         <div className = "bg-salmon">
             <div className = "column-padding centered">
                 <div className = "callout-wrap">
-                    <Image className = "callout-image"></Image>
+                    <Image src="/assets/hero.png" className = "callout-image" alt=""></Image>
                 </div>
             </div>
         </div>
