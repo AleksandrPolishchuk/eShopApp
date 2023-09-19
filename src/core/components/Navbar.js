@@ -7,6 +7,9 @@ export default function Navbar() {
             <Link href="">
                 <Logo />
             </Link>
+            <div className = "nav-menu">
+                
+            </div>
         </div>
     )
 }
