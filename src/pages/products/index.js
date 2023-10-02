@@ -11,7 +11,7 @@ export default function ProductsPage() {
 
       <div className="section small">
         <div className="container">
-          <ul className="product-card-grid"></ul>
+          <ul className="product-card-grid">test</ul>
         </div>
       </div>
     </>
