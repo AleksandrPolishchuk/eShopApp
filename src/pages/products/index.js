@@ -8,6 +8,12 @@ export default function ProductsPage() {
           </div>
         </div>
       </div>
+
+      <div className="section small">
+        <div className="container">
+          <ul className="product-card-grid"></ul>
+        </div>
+      </div>
     </>
   );
 }
