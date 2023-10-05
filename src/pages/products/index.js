@@ -17,3 +17,9 @@ export default function ProductsPage() {
     </>
   );
 }
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
