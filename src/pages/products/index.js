@@ -1,4 +1,6 @@
-export default function ProductsPage() {
+export default function ProductsPage({ products }) {
+  console.log(products);
+
   return (
     <>
       <div className="section bg-blue">
@@ -19,7 +21,11 @@ export default function ProductsPage() {
 }
 
 export async function getStaticProps() {
+  let { data: products } = await supabase.from("product").select("*");
+
   return {
-    props: {},
+    props: {
+      products,
+    },
   };
 }
