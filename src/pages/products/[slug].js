@@ -1,8 +1,43 @@
-import { useRouter } from "next/router";
+import { supabase } from "supabase";
 
-export default function ProductPage() {
-  const router = useRouter();
-  console.log(router.query);
+export default function ProductPage({ product }) {
+  console.log(product);
 
-  return <div>{router.query.slug}</div>;
+  return <div>product page</div>;
+}
+
+export async function getStaticPaths() {
+  const { data: products } = await supabase.from("product").select("slug");
+
+  const paths = products.map((product) => ({
+    params: {
+      slug: product.slug,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+console.log(paths);
+
+export async function getStaticProps(context) {
+  const slug = context.params.slug;
+
+  const { data: product } = await supabase
+    .from("product")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  return {
+    // Passed to the page component as props
+    props: {
+      post: {
+        product,
+      },
+    },
+  };
 }
