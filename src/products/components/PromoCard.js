@@ -10,7 +10,7 @@ export default function PromoCard() {
         </div>
       </div>
       <Link href="/pricing" className="primary button">
-        Pruchare
+        Purchare
       </Link>
     </section>
   );
