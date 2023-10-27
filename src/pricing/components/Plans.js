@@ -7,6 +7,7 @@ export default function Plans({ plans }) {
   function togglePlan() {
     const interval = selected === "month" ? "year" : "month";
     setSelected(interval);
+    console.log(interval);
   }
 
   return (
