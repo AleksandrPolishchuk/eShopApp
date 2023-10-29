@@ -7,7 +7,10 @@ export default function Plans({ plans }) {
   function togglePlan() {
     const interval = selected === "month" ? "year" : "month";
     setSelected(interval);
-    //console.log(interval);
+  }
+
+  async function onCheckout() {
+    const response = await fetch(`${SITE_URL}/api/checkout/${plan.id}`);
   }
 
   return (
@@ -30,7 +33,7 @@ export default function Plans({ plans }) {
               <div>
                 J. ${plans.price} / {plans.interval}
               </div>
-              <button className="large-button">
+              <button onClick={onCheckout} className="large-button">
                 <div className="large-button-text">B. N.</div>
               </button>
             </div>
