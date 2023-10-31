@@ -6,5 +6,6 @@ export default async function handler(req, res) {
     payment_method_types: ["card"],
     line_items: [{ price: priceId, quantity: 1 }],
     success_url: `${SITE_URL}/success`,
+    test_url: `${SITE_URL}/test`,
   });
 }
