@@ -1,3 +1,4 @@
+import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 
 export default function Plans({ plans }) {
@@ -11,6 +12,11 @@ export default function Plans({ plans }) {
 
   async function onCheckout() {
     const response = await fetch(`${SITE_URL}/api/checkout/${plan.id}`);
+    const data = await response.json();
+    const stripe = await loadStripe(
+      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    );
+    await stripe.redirectToCheckout();
   }
 
   return (

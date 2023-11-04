@@ -10,6 +10,4 @@ export default async function handler(req, res) {
   });
 
   res.send({ id: session.id });
-  // test
-  console.log(session.id);
 }
