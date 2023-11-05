@@ -16,7 +16,7 @@ export default function Plans({ plans }) {
     const stripe = await loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
     );
-    await stripe.redirectToCheckout();
+    await stripe.redirectToCheckout({ sessionId: data.id });
   }
 
   return (
