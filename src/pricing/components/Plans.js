@@ -4,6 +4,7 @@ import { SITE_URL } from "src/core/utils";
 
 export default function Plans({ plans }) {
   const [selected, setSelected] = useState("month");
+  const [isRedirecting, setRedirecting] = useState(false);
   const plan = plans.find((plan) => plan.interval === selected);
 
   function togglePlan() {
@@ -12,12 +13,15 @@ export default function Plans({ plans }) {
   }
 
   async function onCheckout() {
+    setRedirecting(true);
+
     const response = await fetch(`${SITE_URL}/api/checkout/${plan.id}`);
     const data = await response.json();
     const stripe = await loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
     );
     await stripe.redirectToCheckout({ sessionId: data.id });
+    setRedirecting(false);
   }
 
   return (
