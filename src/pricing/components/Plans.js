@@ -1,6 +1,7 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
-// test
+import { SITE_URL } from "src/core/utils";
+
 export default function Plans({ plans }) {
   const [selected, setSelected] = useState("month");
   const plan = plans.find((plan) => plan.interval === selected);
