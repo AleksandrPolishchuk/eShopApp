@@ -44,8 +44,14 @@ export default function Plans({ plans }) {
               <div>
                 J. ${plans.price} / {plans.interval}
               </div>
-              <button onClick={onCheckout} className="large-button">
-                <div className="large-button-text">B. N.</div>
+              <button
+                disabled={isRedirecting}
+                onClick={onCheckout}
+                className="large-button"
+              >
+                <div className="large-button-text">
+                  {isRedirecting ? "Loading..." : "B.n."}
+                </div>
               </button>
             </div>
           </div>
