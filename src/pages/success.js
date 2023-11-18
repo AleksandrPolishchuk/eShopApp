@@ -3,6 +3,7 @@ import Link from "next/link";
 import confetti from "../../public/assets/confetti.png";
 
 export default function SuccessPage() {
+  // Test
   return (
     <div className="section bg-pink h-screen">
       <div className="container">
