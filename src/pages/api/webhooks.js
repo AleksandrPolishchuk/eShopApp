@@ -22,7 +22,45 @@ export default async function handler(req, res) {
     return res.status(400).end();
   }
 
-  console.log(event);
+  try {
+    switch (event.type) {
+      case "customer.subsciption.updated":
+        await updateSubscription();
+        break;
+      case "customer.subscription.deleted":
+        await updateSubscription(event);
+        break;
+    }
 
-  res.send({ success: true });
+    res.send({ success: true });
+  } catch (error) {
+    console.log(error.message);
+    res.send({ success: false });
+  }
 }
+
+async function updateSubscription(event) {
+  const subscription = event.data.object;
+  const stripe_customer_id = subscription.customer;
+  const subscription_status = subscription.status;
+  const price = subscription.items.data[0].price.id;
+  const { data: profile } = await supabase
+    .from("profile")
+    .select("*")
+    .eq("stripe_customer_id", stripe_customer_id)
+    .single();
+
+  if (profile) {
+    const updatedSubscription = {
+      subscription_status,
+      price,
+    };
+    await supabase
+      .from("profile")
+      .update(updateSubscription)
+      .eq("stripe_customer_id", stripe_customer_id);
+  } else {
+  }
+}
+
+async function updateSubscription(event) {}
