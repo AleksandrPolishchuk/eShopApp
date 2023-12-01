@@ -60,6 +60,17 @@ async function updateSubscription(event) {
       .update(updateSubscription)
       .eq("stripe_customer_id", stripe_customer_id);
   } else {
+    const customer = stripe.customers.retrieve(stripe_customer_id);
+    const name = customer.name;
+    const email = customer.email;
+    const newProfile = {
+      name,
+      email,
+      stripe_customer_id,
+      subscription_status,
+      price,
+    };
+    await supabase.auth.admin.createUser({});
   }
 }
 
