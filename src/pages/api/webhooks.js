@@ -70,7 +70,11 @@ async function updateSubscription(event) {
       subscription_status,
       price,
     };
-    await supabase.auth.admin.createUser({});
+    await supabase.auth.admin.createUser({
+      email,
+      email_confirm: true,
+      user_metadata: newProfile,
+    });
   }
 }
 
