@@ -78,4 +78,5 @@ async function updateSubscription(event) {
   }
 }
 
+// test
 async function updateSubscription(event) {}
