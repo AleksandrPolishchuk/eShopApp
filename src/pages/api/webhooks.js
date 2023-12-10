@@ -78,4 +78,6 @@ async function updateSubscription(event) {
   }
 }
 
-async function updateSubscription(event) {}
+async function updateSubscription(event) {
+  return <div>Test</div>;
+}
